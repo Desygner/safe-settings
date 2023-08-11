@@ -16,7 +16,7 @@ COPY  lib /opt/safe-settings/lib
 RUN npm install
 
 ## This app will listen on port 3000
-EXPOSE 3000
+EXPOSE 3001
 
 USER node
 

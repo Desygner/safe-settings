@@ -178,7 +178,8 @@ module.exports = (robot, _, Settings = require('./lib/settings')) => {
 
   async function createCheckRun (context, pull_request, head_sha, head_branch) {
     const { payload } = context
-    robot.log.debug(`Check suite was requested! for ${context.repo()} ${pull_request.number} ${head_sha} ${head_branch}`)
+    // robot.log.debug(`Check suite was requested! for ${context.repo()} ${pull_request.number} ${head_sha} ${head_branch}`)
+    robot.log.debug(`Check suite was requested! for ${context.repo()}  ${head_sha} ${head_branch}`)
     const res = await context.octokit.checks.create({
       owner: payload.repository.owner.login,
       repo: payload.repository.name,

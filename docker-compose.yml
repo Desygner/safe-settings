@@ -13,5 +13,14 @@ services:
       WEBHOOK_SECRET: ${WEBHOOK_SECRET}
       GITHUB_CLIENT_ID: ${GITHUB_CLIENT_ID}
       GITHUB_CLIENT_SECRET: ${GITHUB_CLIENT_SECRET}
+      DEPLOYMENT_CONFIG_FILE: ${DEPLOYMENT_CONFIG_FILE}
+      LOG_LEVEL: ${LOG_LEVEL}
+      ENABLE_PR_COMMENT: ${ENABLE_PR_COMMENT}
+      SENTRY_DSN: ${SENTRY_DSN}
     ports:
-      - 3000:3000
+      - 3001:3000
+    volumes:
+      - type: bind
+        source: ./deployment-settings.yml
+        target: /opt/safe-settings/deployment-settings.yml
+        read_only: true
